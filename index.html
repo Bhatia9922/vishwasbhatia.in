@@ -179,7 +179,7 @@ body { overscroll-behavior-y: none; }
 </style>
 
 <style>
-/* Stable profile photo — animation stays outside the photo */
+/* Sleek profile photo ring — photo stays completely static */
 .photo-avatar{
   position:relative;
   overflow:visible;
@@ -193,29 +193,33 @@ body { overscroll-behavior-y: none; }
 .photo-avatar:before{
   content:"";
   position:absolute;
-  inset:-7px;
+  inset:-4px;
   border-radius:50%;
+  padding:2px;
   background:conic-gradient(
     from 0deg,
-    transparent 0 16%,
-    rgba(85,230,255,.95) 25%,
-    rgba(45,140,255,.95) 40%,
-    transparent 54% 73%,
-    rgba(85,230,255,.9) 87%,
-    transparent 96%
+    rgba(85,230,255,.12) 0 18%,
+    rgba(85,230,255,.9) 34%,
+    rgba(45,140,255,.72) 48%,
+    rgba(85,230,255,.08) 62% 82%,
+    rgba(85,230,255,.7) 92%,
+    rgba(85,230,255,.12) 100%
   );
-  animation:photoRingSpin 4.8s linear infinite;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:photoRingSpin 5.8s linear infinite;
   z-index:-2;
-  filter:drop-shadow(0 0 9px rgba(85,230,255,.42));
+  filter:drop-shadow(0 0 5px rgba(85,230,255,.24));
 }
 .photo-avatar:after{
   content:"";
   position:absolute;
-  inset:-13px;
+  inset:-8px;
   border-radius:50%;
-  border:1px solid rgba(85,230,255,.25);
-  box-shadow:0 0 22px rgba(45,140,255,.18), inset 0 0 18px rgba(85,230,255,.08);
-  animation:photoRingPulse 2.8s ease-in-out infinite;
+  border:1px solid rgba(85,230,255,.14);
+  box-shadow:0 0 12px rgba(45,140,255,.10);
+  animation:photoRingPulse 3.6s ease-in-out infinite;
   z-index:-3;
 }
 .photo-avatar img{
@@ -233,9 +237,10 @@ body { overscroll-behavior-y: none; }
   to{transform:rotate(360deg)}
 }
 @keyframes photoRingPulse{
-  0%,100%{transform:scale(.985);opacity:.55}
-  50%{transform:scale(1.035);opacity:1}
+  0%,100%{transform:scale(.995);opacity:.55}
+  50%{transform:scale(1.012);opacity:.9}
 }
+
 </style>
 </head>
 <body>
